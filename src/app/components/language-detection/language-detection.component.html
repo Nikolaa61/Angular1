@@ -1,0 +1,28 @@
+<div>
+  <!-- [formGroup]="commentForm" vezuje ovu konkretnu formu sa commentForm atributom iz modela -->
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Text</label>
+    <!-- formControlName atribut vezuje ovo polje forme sa poljem definisanim u FormGroup -->
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="text"></textarea>
+  </div>
+
+  <div class="form-check">
+    <input [(ngModel)]="clean" class="form-check-input" type="checkbox" name="clean" id="clean">
+    <label class="form-check-label" for="clean">
+      Clean
+    </label>
+  </div>
+
+
+  <button (click)="getLanguageDetection()">Submit</button>
+</div>
+
+<div>
+
+  <h3>Detektovani jezici:</h3>
+
+  <div *ngFor="let lang of language.detectedLangs; let i = index;" class="mb-2">
+    <h3>{{ i+1 }}. "{{ lang.lang}}" - {{lang.confidence}}</h3>
+  </div>
+
+</div>

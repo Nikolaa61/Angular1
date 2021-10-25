@@ -1,0 +1,24 @@
+
+<div>
+  <!-- [formGroup]="commentForm" vezuje ovu konkretnu formu sa commentForm atributom iz modela -->
+  <form [formGroup]="similarityForm" (submit)="getSimilarity()" class="mb-5">
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Text 1</label>
+      <!-- formControlName atribut vezuje ovo polje forme sa poljem definisanim u FormGroup -->
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [formControlName]="'text1'"></textarea>
+      <div class="error-message text-danger" *ngIf="similarityForm.get('text1')?.errors?.required"> Name is required! </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea2">Text 2</label>
+      <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" [formControlName]="'text2'"></textarea>
+      <div class="error-message text-danger" *ngIf="similarityForm.get('text2')?.errors?.required"> Email is required! </div>
+    </div>
+
+
+    <button [disabled]="!similarityForm.valid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div>
+  <h1>Slicnost je {{similarity.similarity}}</h1>
+</div>

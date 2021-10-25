@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dandApi: 'https://api.dandelion.eu',
+  token: '8c197c899aaf4c7eac4cf60b07688118'
 };
 
 /*

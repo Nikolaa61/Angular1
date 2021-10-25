@@ -1,0 +1,39 @@
+<div>
+  <!-- [formGroup]="commentForm" vezuje ovu konkretnu formu sa commentForm atributom iz modela -->
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Text</label>
+    <!-- formControlName atribut vezuje ovo polje forme sa poljem definisanim u FormGroup -->
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="text"></textarea>
+  </div>
+
+  <div class="form-check">
+    <input [(ngModel)]="lang" class="form-check-input" type="radio" name="primaryColor" id="primaryColorRed" value="auto" checked>
+    <label class="form-check-label" for="primaryColorRed">
+      Auto
+    </label>
+  </div>
+  <div class="form-check">
+    <input [(ngModel)]="lang" class="form-check-input" type="radio" name="primaryColor" id="primaryColorGreen" value="en">
+    <label class="form-check-label" for="primaryColorGreen" >
+      English
+    </label>
+  </div>
+  <div class="form-check">
+    <input [(ngModel)]="lang" class="form-check-input" type="radio" name="primaryColor" id="primaryColorBlue" value="it">
+    <label class="form-check-label" for="primaryColorBlue" >
+      Italian
+    </label>
+  </div>
+
+
+  <button (click)="getSentiment()">Submit</button>
+
+  <h3 >Skor: {{sentiment.sentiment.score}}</h3>
+<!--  <h3>Tip: {{sentiment.sentiment.type}}</h3>-->
+  <h3>Tip: <span [style]="{color: hex}">{{sentiment.sentiment.type}}</span></h3>
+  <h3>{{hex}}</h3>
+<!--    <h3>Tip: <span [style]="{color: rgb(255 -255 * sentiment.sentiment.score, 255 *sentiment.sentiment.score, 0)}">{{sentiment.sentiment.type}}</span></h3>-->
+</div>
+
+
+

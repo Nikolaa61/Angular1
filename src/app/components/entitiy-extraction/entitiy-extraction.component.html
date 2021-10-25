@@ -1,0 +1,41 @@
+<div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Text</label>
+    <!-- formControlName atribut vezuje ovo polje forme sa poljem definisanim u FormGroup -->
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="text"></textarea>
+  </div>
+
+  <mat-slider [(ngModel)]="min_confidence" min="0" max="1" step="0.1" >></mat-slider>
+  <p>{{min_confidence}}</p>
+
+  <div class="form-check">
+    <input [(ngModel)]="abstract" class="form-check-input" type="checkbox" name="primaryColor" id="primaryColorRed"  >
+    <label class="form-check-label" for="primaryColorRed">
+      Abstract
+    </label>
+  </div>
+  <div class="form-check">
+    <input [(ngModel)]="categories" class="form-check-input" type="checkbox" name="primaryColor" id="primaryColorGreen" >
+    <label class="form-check-label" for="primaryColorGreen" >
+      Categories
+    </label>
+  </div>
+  <div class="form-check">
+    <input [(ngModel)]="image1" class="form-check-input" type="checkbox" name="primaryColor" id="primaryColorBlue">
+    <label class="form-check-label" for="primaryColorBlue" >
+      Image
+    </label>
+  </div>
+
+
+  <button (click)="getEntity()">Submit</button>
+
+  <div *ngFor="let entitet of anotacija.annotations; let i = index;" class="mb-2">
+    <hr>
+    <h3>Entitet: {{entitet.title}}</h3>
+    <h3 *ngIf="entitet.abstract != ''"> Abstract: {{entitet.abstract}}</h3>
+    <h3 *ngIf="entitet.image.full != ''"> Image: <img style="width: 400px; height: 400px" [src]="entitet.image.full"></h3>
+    <h3 *ngIf="entitet.categories != []">Categories: {{entitet.categories}}</h3>
+  </div>
+
+</div>
